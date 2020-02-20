@@ -1,18 +1,16 @@
 import math
 
 def vendGumball(currencyAmount, color):
-    colorValues = {
-        1: 5,
-        2: 10
+    gumballs = {
+        1: [5, "red"],
+        2: [10, "yellow"]
     }
 
-    colors = {
-        1: "red",
-        2: "yellow"
-    }
-
-    currencyAmount = currencyAmount - colorValues.get(color)
-    print("Dispensing {} gumball".format(colors.get(color)))
+    if currencyAmount - gumballs[color][0] < 0:
+        print("Not enough currency.")
+    else:
+        currencyAmount = currencyAmount - gumballs[color][0]
+        print("Dispensing {} gumball.".format(gumballs[color][1]))
 
     return currencyAmount 
 
@@ -24,7 +22,7 @@ def returnCurrency(value):
     nickles = math.floor(value / 5)
     value = value - (nickles * 5)
 
-    print("Returning {} quarters, {} dimes, and {} nickles".format(quarters, dimes, nickles))
+    print("Returning {} quarters, {} dimes, and {} nickles.".format(quarters, dimes, nickles))
 
 def proccessInput(value, currencyAmount):
     if value.lower() == "h":
