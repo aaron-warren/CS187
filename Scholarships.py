@@ -83,7 +83,7 @@ def getNumber(prompt):
         number = input(prompt)
         if number.isdigit():
             number = int(number)
-            break;
+            break
         else:
             print("Invalid input.")
     return number
@@ -93,7 +93,7 @@ def getLetter(prompt):
     while True:
         letter = input(prompt)
         if letter.lower() in possibleInputs:
-            break;
+            break
         else:
             print("Invalid input.")
     return letter.lower()
