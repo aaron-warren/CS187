@@ -45,6 +45,39 @@ def eligible():
 
     return eligibility
 
+def eligible_test(age, resident, partTime, taxes, volunteer, household):
+    eligibility = []
+
+    # age = getNumber("Input age: ")
+    if age >= 18 and age <= 24:
+        eligibility.append(1)
+
+    # resident = getLetter("Lived in California last 2 years (y/n): ")
+    if resident == "n":
+        # taxes = getLetter("Parents paid CA state tax for at least 1 year throughout life (y/n): ")
+        if taxes == "y":
+            eligibility.append(1)
+        else:
+            eligibility.append(0)
+    else:
+        eligibility.append(1)
+    
+    # partTime = getNumber("Duration in months working part time in relevant field of study: ")
+    if partTime < 6:
+        # volunteer = getLetter("Volunteered for a cause and have valid proof (y/n): ")
+        if volunteer == "y":
+            eligibility.append(1)
+        else:
+            eligibility.append(0)
+    else:
+        eligibility.append(1)
+    
+    # household = getLetter("Household income less than $5000 per annum (y/n): ")
+    if household == "y":
+        eligibility[2] = "Dean for consideration"
+
+    return eligibility
+
 def getNumber(prompt):
     while True:
         number = input(prompt)
