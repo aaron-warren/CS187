@@ -18,6 +18,8 @@ def eligible():
     age = getNumber("Input age: ")
     if age >= 18 and age <= 24:
         eligibility.append(1)
+    else:
+        eligibility.append(0)
 
     resident = getLetter("Lived in California last 2 years (y/n): ")
     if resident == "n":
@@ -40,17 +42,19 @@ def eligible():
         eligibility.append(1)
     
     household = getLetter("Household income less than $5000 per annum (y/n): ")
-    if household == "y":
+    if household == "y" and eligibility[0] == 1 and eligibility[1] == 1:
         eligibility[2] = "Dean for consideration"
 
     return eligibility
 
-def eligible_test(age, resident, partTime, taxes, volunteer, household):
+def eligible_test(age, resident, taxes, partTime, volunteer, household):
     eligibility = []
 
     # age = getNumber("Input age: ")
     if age >= 18 and age <= 24:
         eligibility.append(1)
+    else:
+        eligibility.append(0)
 
     # resident = getLetter("Lived in California last 2 years (y/n): ")
     if resident == "n":
@@ -73,7 +77,7 @@ def eligible_test(age, resident, partTime, taxes, volunteer, household):
         eligibility.append(1)
     
     # household = getLetter("Household income less than $5000 per annum (y/n): ")
-    if household == "y":
+    if household == "y" and eligibility[0] == 1 and eligibility[1] == 1:
         eligibility[2] = "Dean for consideration"
 
     return eligibility
@@ -99,7 +103,6 @@ def getLetter(prompt):
     return letter.lower()
 
 if __name__ == "__main__":
-    
     earray = eligible()
     print(earray)
 
