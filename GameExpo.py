@@ -30,5 +30,5 @@ def tickets(gender, age):
             return "Poetry"
 
 if __name__ == "__main__":
-    print(tickets("F", 10))
+    print(tickets("F", 15))
     pass
