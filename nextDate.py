@@ -65,7 +65,6 @@ def leapYear(year):
     else:
         return 29
 
-
 if __name__ == "__main__":
     print(nextDate("2/29/2016"))
     pass
