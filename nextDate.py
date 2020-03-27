@@ -1,11 +1,13 @@
 def nextDate(oldDate):
+    # Values to help navigate date array
     MONTH = 0
     DAY = 1
     YEAR = 2
 
+    # Number of days in each month
     daysPerMonth = {
         1: 31,
-        2: None,
+        2: None, # Days in February is assigned after input validation and then checking if it's a leap year
         3: 31,
         4: 30,
         5: 31,
@@ -20,8 +22,8 @@ def nextDate(oldDate):
 
     try:
         date = list(map(int,oldDate.split("/")))
-    except ValueError:
-        print("Invalid input for date, must input as MM/DD/YYYY")
+    except:
+        return "Invalid input for date, must input as MM/DD/YYYY"
 
     # Ensures that the date was entered as MM/DD/YYYY with all integers
     if len(date) != 3:
@@ -53,18 +55,20 @@ def nextDate(oldDate):
             date[YEAR] = date[YEAR] + 1
             date[MONTH] = 1
 
+    # Returns next date as a string in MM/DD/YYYY format
     return '/'.join(map(str,date))
 
+# Simple algorithm to check if it is a leap year, returns number of days supposed to be in February
 def leapYear(year):
-    if year % 4 != 0:
+    if year % 4 != 0: # is not a leap year
         return 28
-    elif year % 100 != 0:
+    elif year % 100 != 0: # is a leap year
         return 29
-    elif year % 400 != 0:
+    elif year % 400 != 0: # is not a leap year
         return 28
-    else:
+    else: # is a leap year
         return 29
 
 if __name__ == "__main__":
-    print(nextDate("2/29/2016"))
+    print(nextDate(""))
     pass
